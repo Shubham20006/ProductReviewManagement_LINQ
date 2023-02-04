@@ -40,8 +40,7 @@ namespace ProductReviewManagement
         {
             var a = from p in d.AsEnumerable()
                     select new
-                    { 
-                        productid = p.Field<string>("ProductID"),
+                    {   productid = p.Field<string>("ProductID"),
                         userid = p.Field<string>("UserID"),
                         rating = p.Field<string>("Rating"),
                         review = p.Field<string>("Review"),
@@ -49,8 +48,10 @@ namespace ProductReviewManagement
                     };
             foreach (var el in a)
             {
-                
-                Console.WriteLine(el);
+               if( el.islike.Contains("True"))
+                {
+                    Console.WriteLine(el);
+                }
             }
         }
     }
