@@ -33,8 +33,10 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=3, UserID=5, Rating=5, Review="good", isLike=true}
             };
 
-         //   Management.retriveTopThreeByRating(list);
-            Management.retriveByRatingandProductID(list);
+            //   Management.retriveTopThreeByRating(list);
+            // Management.retriveByRatingandProductID(list);
+            Management.retriveCountByProductID(list);
+
         }
     }
 }
