@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,15 @@ namespace ProductReviewManagement
             foreach (var i in a)
             {            
                 Console.WriteLine("ProductID :{0}, Count :{1}", i.productid, i.count);
+            }
+        }
+        public static void retriveProductIDAndReview(List<ProductReview> element)
+        {
+            var a = from productreview in element select productreview;
+
+            foreach (var i in a)
+            {
+                Console.WriteLine("ProductID :{0},  Review :{1}", i.ProductID, i.Review);
             }
         }
     }
