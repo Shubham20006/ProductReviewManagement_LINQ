@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ProductReviewManagement
 {
@@ -13,7 +14,6 @@ namespace ProductReviewManagement
         {
             Console.WriteLine("WELCOME TO THE 'PRODUCT REVIEW MANAGEMENT BY USING LINQ' PROGRAM.");
 
-            ProductReview PR =new ProductReview();
             List<ProductReview> list = new List<ProductReview>()
             {
                 new ProductReview(){ProductID=1, UserID=1, Rating=4, Review="good", isLike=true},
@@ -32,6 +32,8 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=4, UserID=2, Rating=2, Review="bad", isLike=false},
                 new ProductReview(){ProductID=3, UserID=5, Rating=5, Review="good", isLike=true}
             };
+
+            Management.retriveTopThreeByRating(list);
         }
     }
 }
