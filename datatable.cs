@@ -38,20 +38,23 @@ namespace ProductReviewManagement
         }
         public static void Display(DataTable d)
         {
-            var a = from p in d.AsEnumerable()
-                    select new
-                    {   productid = p.Field<string>("ProductID"),
-                        userid = p.Field<string>("UserID"),
-                        rating = p.Field<string>("Rating"),
-                        review = p.Field<string>("Review"),
-                        islike = p.Field<string>("isLike")
-                    };
-            foreach (var el in a)
-            {
-               if( el.islike.Contains("True"))
+            //var a = from p in d.AsEnumerable()
+            //        select new
+            //        {   productid = p.Field<string>("ProductID"),
+            //            userid = p.Field<string>("UserID"),
+            //            rating = p.Field<string>("Rating"),
+            //            review = p.Field<string>("Review"),
+            //            islike = p.Field<string>("isLike")
+            //        };
+            var b = d.AsEnumerable().GroupBy(x => x.Field<int>("ProductID"))
+                .Select(x => new
                 {
-                    Console.WriteLine(el);
-                }
+                    ProductID = x.Key,
+                    Rating = x.Average(x => x.Field<int>("Rating"))
+                }).ToList();
+            foreach (var el in b)
+            {                          
+                    Console.WriteLine(el);                
             }
         }
     }
