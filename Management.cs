@@ -53,5 +53,14 @@ namespace ProductReviewManagement
                 Console.WriteLine("ProductID :{0},  Review :{1}", i.ProductID, i.Review);
             }
         }
+        public static void skipTopFive(List<ProductReview> element)
+        {
+            var a = (from productreview in element select productreview).Skip(5);
+
+            foreach (var i in a)
+            {
+                Console.WriteLine("ProductID :{0},  Review :{1}", i.ProductID, i.Review);
+            }
+        }
     }
 }

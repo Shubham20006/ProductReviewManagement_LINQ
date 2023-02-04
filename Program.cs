@@ -36,7 +36,8 @@ namespace ProductReviewManagement
             //   Management.retriveTopThreeByRating(list);
             // Management.retriveByRatingandProductID(list);
             // Management.retriveCountByProductID(list);
-            Management.retriveProductIDAndReview(list);
+            //  Management.retriveProductIDAndReview(list);
+            Management.skipTopFive(list);
 
         }
     }
