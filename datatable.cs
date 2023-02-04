@@ -17,6 +17,7 @@ namespace ProductReviewManagement
             table.Columns.Add("Rating");
             table.Columns.Add("Review");
             table.Columns.Add("isLike");
+            
 
             table.Rows.Add(1, 1, 4, "good", true);
             table.Rows.Add(4, 2, 2, "bad", false);
@@ -30,31 +31,37 @@ namespace ProductReviewManagement
             table.Rows.Add(2, 10, 1, "bad", false);
             table.Rows.Add(5, 3, 5, "good", true);
             table.Rows.Add(9, 5, 4, "good", true);
-            table.Rows.Add(1, 1, 4, "good", true);
+            table.Rows.Add(1, 10, 4, "good", true);
             table.Rows.Add(4, 2, 2, "bad", false);
+            table.Rows.Add(3, 10, 5, "good", true);
+            table.Rows.Add(3, 7, 4, "good", true);
+            table.Rows.Add(2, 10, 1, "bad", false);
+            table.Rows.Add(5, 10, 5, "good", true);
+            table.Rows.Add(9, 5, 4, "good", true);
+            table.Rows.Add(1, 10, 4, "good", true);
+            table.Rows.Add(4, 10, 2, "bad", false);
             table.Rows.Add(3, 5, 5, "good", true);
 
             Display(table);
         }
         public static void Display(DataTable d)
         {
-            //var a = from p in d.AsEnumerable()
-            //        select new
-            //        {   productid = p.Field<string>("ProductID"),
-            //            userid = p.Field<string>("UserID"),
-            //            rating = p.Field<string>("Rating"),
-            //            review = p.Field<string>("Review"),
-            //            islike = p.Field<string>("isLike")
-            //        };
-            var b = d.AsEnumerable().GroupBy(x => x.Field<int>("ProductID"))
-                .Select(x => new
+            var a = from p in d.AsEnumerable()
+                    select new
+                    {
+                        productid = p.Field<string>("ProductID"),
+                        userid = p.Field<string>("UserID"),
+                        rating = p.Field<string>("Rating"),
+                        review = p.Field<string>("Review"),
+                        islike = p.Field<string>("isLike")
+                    };
+
+            foreach (var el in a)
+            {
+                if (el.userid == "10")
                 {
-                    ProductID = x.Key,
-                    Rating = x.Average(x => x.Field<int>("Rating"))
-                }).ToList();
-            foreach (var el in b)
-            {                          
-                    Console.WriteLine(el);                
+                    Console.WriteLine(el);
+                }               
             }
         }
     }
