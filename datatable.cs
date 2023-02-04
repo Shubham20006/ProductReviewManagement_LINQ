@@ -55,7 +55,6 @@ namespace ProductReviewManagement
                         review = p.Field<string>("Review"),
                         islike = p.Field<string>("isLike")
                     };
-
             foreach (var el in a)
             {
                 if (el.userid == "10")
